@@ -3,19 +3,27 @@ defmodule AdventOfCode.Day01Test do
 
   import AdventOfCode.Day01
 
-  @tag :skip
-  test "part1" do
-    input = nil
-    result = part1(input)
-
-    assert result
+  def get_inputs() do
+    input = File.read!(Path.join(__DIR__, "../../data/day1.txt"))
+    Enum.map(String.split(input, "\n"), &String.to_integer(&1))
   end
 
-  @tag :skip
-  test "part2" do
-    input = nil
-    result = part2(input)
+  test "part1" do
+    module_weights = get_inputs()
+    result = part1(module_weights)
+    # |> IO.inspect(label: "Day 1, Part 1")
 
-    assert result
+    # accepted
+    assert result == 3_454_026
+  end
+
+  test "part2" do
+    module_weights = get_inputs()
+
+    result = part2(module_weights)
+    # |> IO.inspect(label: "Day 1, Part 2")
+
+    # accepted
+    assert result == 5_178_170
   end
 end
